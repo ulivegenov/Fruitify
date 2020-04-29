@@ -39,4 +39,8 @@
     <ProjectReference Include="..\Fruitify.Web.Infrastructure\Fruitify.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\Fruitify.Web.ViewModels\Fruitify.Web.ViewModels.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\css\scss\" />
+  </ItemGroup>
 </Project>
