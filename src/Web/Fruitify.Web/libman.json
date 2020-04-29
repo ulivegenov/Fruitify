@@ -60,34 +60,6 @@
       ]
     },
     {
-      "library": "szmigiel-flaticon@1.0.0",
-      "destination": "wwwroot/lib/flaticons/",
-      "files": [
-        "flaticon.css",
-        "flaticon.min.css",
-        "Flaticon.eot",
-        "Flaticon.svg",
-        "Flaticon.ttf",
-        "Flaticon.woff",
-        "Flaticon.woff2",
-        "_flaticon.scss",
-        "flaticon.html"
-      ]
-    },
-    {
-      "library": "@icon/ionicons@4.5.8",
-      "destination": "wwwroot/lib/ionicons/css/",
-      "files": [
-        "ionicons.css",
-        "ionicons.min.css",
-        "ionicons.eot",
-        "ionicons.woff",
-        "ionicons.woff2",
-        "ionicons.svg",
-        "ionicons.ttf"
-      ]
-    },
-    {
       "library": "timepicker@1.13.3",
       "destination": "wwwroot/lib/timepicker/",
       "files": [
@@ -124,17 +96,6 @@
         "dist/assets/owl.carousel.min.css",
         "dist/assets/owl.theme.default.min.css",
         "dist/owl.carousel.min.js"
-      ]
-    },
-    {
-      "library": "icomoon@1.0.0",
-      "destination": "wwwroot/lib/icomoon/",
-      "files": [
-        "style.css",
-        "fonts/icomoon.eot",
-        "fonts/icomoon.svg",
-        "fonts/icomoon.ttf",
-        "fonts/icomoon.woff"
       ]
     },
     {
