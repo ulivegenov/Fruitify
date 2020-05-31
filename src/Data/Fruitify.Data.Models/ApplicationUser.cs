@@ -3,7 +3,9 @@ namespace Fruitify.Data.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
+    using Fruitify.Common;
     using Fruitify.Data.Common.Models;
 
     using Microsoft.AspNetCore.Identity;
@@ -33,5 +35,17 @@ namespace Fruitify.Data.Models
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        // Additional info
+        [Required]
+        [MaxLength(EntitiesAttributeConstraints.NameMaxLength)]
+        public string FirstName { get; set; }
+
+        [Required]
+        [MaxLength(EntitiesAttributeConstraints.NameMaxLength)]
+        public string LastName { get; set; }
+
+        [MaxLength(EntitiesAttributeConstraints.AddressMaxLength)]
+        public string Address { get; set; }
     }
 }
