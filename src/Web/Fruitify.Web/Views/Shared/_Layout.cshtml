@@ -69,6 +69,8 @@
                     <span class="oi oi-menu"></span> Menu
                 </button>
 
+                <partial name="_LoginPartial" />
+
                 <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a asp-area="" asp-controller="Home" class="nav-link">Начало</a></li>
@@ -81,19 +83,19 @@
                                 <a class="dropdown-item" href="checkout.html">Плащане</a>
                             </div>
                         </li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">За нас</a></li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Блог</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">Продукти</a></li>
+                        <li class="nav-item"><a href="blog.html" class="nav-link">За нас</a></li>
                         <li class="nav-item"><a href="contact.html" class="nav-link">Контакти</a></li>
                         <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
-
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <div class="container">
+    <div class="container border border-success" >
         <partial name="_CookieConsentPartial" />
+        <br />
         <main role="main" class="pb-3">
             @this.RenderBody()
         </main>
