@@ -95,15 +95,16 @@
 
         public class InputModel
         {
-            [Display(Name = "Username")]
+            [Display(Name = "Потребителско име")]
             [Required]
             public string UserName { get; set; }
 
+            [Display(Name = "Парола")]
             [Required]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Запомни ме?")]
             public bool RememberMe { get; set; }
         }
     }
