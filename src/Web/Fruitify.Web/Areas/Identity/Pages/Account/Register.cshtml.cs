@@ -126,7 +126,7 @@
 
             [DataType(DataType.Password)]
             [Display(Name = "Потвърди паролата")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Compare("Password", ErrorMessage = GlobalConstants.ComparePasswordErrorMessage)]
             public string ConfirmPassword { get; set; }
         }
 

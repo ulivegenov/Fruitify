@@ -5,6 +5,8 @@
     using System.IO;
     using System.Threading.Tasks;
 
+    using CommandLine;
+
     using Fruitify.Data;
     using Fruitify.Data.Common;
     using Fruitify.Data.Common.Repositories;
@@ -13,8 +15,6 @@
     using Fruitify.Data.Seeding;
     using Fruitify.Services.Data;
     using Fruitify.Services.Messaging;
-
-    using CommandLine;
 
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
@@ -29,13 +29,17 @@
             var serviceCollection = new ServiceCollection();
             ConfigureServices(serviceCollection);
             IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider(true);
+            IConfiguration configuration = new ConfigurationBuilder()
+                                                .SetBasePath(Directory.GetCurrentDirectory())
+                                                .AddJsonFile("appsettings.json")
+                                                .Build();
 
             // Seed data on application startup
             using (var serviceScope = serviceProvider.CreateScope())
             {
                 var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
                 dbContext.Database.Migrate();
-                new ApplicationDbContextSeeder().SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
+                new ApplicationDbContextSeeder(configuration).SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
             }
 
             using (var serviceScope = serviceProvider.CreateScope())
