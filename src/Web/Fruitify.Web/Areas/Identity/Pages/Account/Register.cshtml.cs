@@ -98,27 +98,27 @@
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
             [StringLength(EntitiesAttributeConstraints.NameMaxLength, ErrorMessage = GlobalConstants.CharactersCountMessage, MinimumLength = EntitiesAttributeConstraints.NameMinLength)]
             [Display(Name = "Име")]
             public string FirstName { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
             [StringLength(EntitiesAttributeConstraints.NameMaxLength, ErrorMessage = GlobalConstants.CharactersCountMessage, MinimumLength = EntitiesAttributeConstraints.NameMinLength)]
             [Display(Name = "Фамилия")]
             public string LastName { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
             [StringLength(EntitiesAttributeConstraints.NameMaxLength, ErrorMessage = GlobalConstants.CharactersCountMessage, MinimumLength = EntitiesAttributeConstraints.NameMinLength)]
             [Display(Name = "Потребителско име")]
             public string UserName { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
             [EmailAddress]
             [Display(Name = "Имейл")]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
             [StringLength(EntitiesAttributeConstraints.PasswordMaxLength, ErrorMessage = GlobalConstants.CharactersCountMessage, MinimumLength = EntitiesAttributeConstraints.PasswordMinLength)]
             [DataType(DataType.Password)]
             [Display(Name = "Парола")]

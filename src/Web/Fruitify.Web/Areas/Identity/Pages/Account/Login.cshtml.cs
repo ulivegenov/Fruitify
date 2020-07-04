@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Threading.Tasks;
 
+    using Fruitify.Common;
     using Fruitify.Data.Models;
 
     using Microsoft.AspNetCore.Authentication;
@@ -84,7 +85,7 @@
                 }
                 else
                 {
-                    this.ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    this.ModelState.AddModelError(string.Empty, GlobalConstants.InvalidLoginAttemptMessage);
                     return this.Page();
                 }
             }
@@ -96,11 +97,11 @@
         public class InputModel
         {
             [Display(Name = "Потребителско име")]
-            [Required]
+            [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
             public string UserName { get; set; }
 
             [Display(Name = "Парола")]
-            [Required]
+            [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 

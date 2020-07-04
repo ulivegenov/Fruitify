@@ -10,6 +10,8 @@
         public const string UserRoleName = "User";
 
         // Error Messages
-        public const string CharactersCountMessage = "The {0} must be at least {2} and at max {1} characters long.";
+        public const string CharactersCountMessage = "Полето \"{0}\", трябва да бъде с дължина между {2} и {1} символа.";
+        public const string RequiredFieldMessage = "Полето \"{0}\", е задължително.";
+        public const string InvalidLoginAttemptMessage = "Невалидно потребителско име, или парола.";
     }
 }
