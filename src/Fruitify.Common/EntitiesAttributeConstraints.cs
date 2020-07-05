@@ -26,5 +26,9 @@
         public const double MaxPrice = 10000;
         public const int DescriptionMinLength = 10;
         public const int DescriptionMaxLength = 250;
+
+        // Image
+        public const int UrlMinLength = 5;
+        public const int UrlMaxLength = 250;
     }
 }

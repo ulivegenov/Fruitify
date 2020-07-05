@@ -27,6 +27,10 @@
         [Range(EntitiesAttributeConstraints.MinPrice, EntitiesAttributeConstraints.MaxPrice)]
         public double Price { get; set; }
 
+        [Required]
+        [MaxLength(EntitiesAttributeConstraints.UrlMaxLength)]
+        public string Image { get; set; }
+
         [Range(EntitiesAttributeConstraints.MinPrice, EntitiesAttributeConstraints.MaxPrice)]
         public double PromoPrice { get; set; }
 

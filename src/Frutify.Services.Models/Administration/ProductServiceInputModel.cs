@@ -11,13 +11,19 @@
 
     public class ProductServiceInputModel : IServiceInputModel, IMapTo<Product>
     {
-        [Required]
-        [MaxLength(EntitiesAttributeConstraints.NameMaxLength)]
+        [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
+        [StringLength(EntitiesAttributeConstraints.NameMaxLength, ErrorMessage = GlobalConstants.CharactersCountMessage, MinimumLength = EntitiesAttributeConstraints.NameMinLength)]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
         public ProductType Type { get; set; }
 
-        [Range(EntitiesAttributeConstraints.MinPrice, EntitiesAttributeConstraints.MaxPrice)]
+        [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
+        [Range(EntitiesAttributeConstraints.MinPrice, EntitiesAttributeConstraints.MaxPrice, ErrorMessage = GlobalConstants.InvalidRangeMessage)]
         public double Price { get; set; }
+
+        [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
+        [StringLength(EntitiesAttributeConstraints.UrlMaxLength, ErrorMessage = GlobalConstants.CharactersCountMessage, MinimumLength = EntitiesAttributeConstraints.UrlMinLength)]
+        public string Image { get; set; }
     }
 }

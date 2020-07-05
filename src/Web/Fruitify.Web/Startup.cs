@@ -11,12 +11,14 @@
     using Fruitify.Data.Repositories;
     using Fruitify.Data.Seeding;
     using Fruitify.Services.Data;
+    using Fruitify.Services.Data.Administration;
+    using Fruitify.Services.Data.Administration.Contracts;
     using Fruitify.Services.Data.AppServices;
     using Fruitify.Services.Data.AppServices.Contracts;
     using Fruitify.Services.Mapping;
     using Fruitify.Services.Messaging;
     using Fruitify.Web.ViewModels;
-
+    using Frutify.Services.Models.Administration;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -74,12 +76,15 @@
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<ICloudinaryService, CloudinaryService>();
+            services.AddTransient<IProductsService, ProductsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            AutoMapperConfig.RegisterMappings(typeof(ErrorViewModel).GetTypeInfo().Assembly);
+            AutoMapperConfig.RegisterMappings(
+                typeof(ErrorViewModel).GetTypeInfo().Assembly,
+                typeof(ProductServiceInputModel).GetTypeInfo().Assembly);
 
             // Seed data on application startup
             using (var serviceScope = app.ApplicationServices.CreateScope())
