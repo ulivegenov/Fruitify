@@ -7,8 +7,9 @@
     using Fruitify.Data.Models;
     using Fruitify.Data.Models.Enums.Product;
     using Fruitify.Services.Mapping;
+    using Frutify.Services.Models.Contracts;
 
-    public class ProductServiceInputModel : IMapTo<Product>
+    public class ProductServiceInputModel : IServiceInputModel, IMapTo<Product>
     {
         [Required]
         [MaxLength(EntitiesAttributeConstraints.NameMaxLength)]

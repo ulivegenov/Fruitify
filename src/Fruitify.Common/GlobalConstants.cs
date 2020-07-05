@@ -14,5 +14,7 @@
         public const string RequiredFieldMessage = "Полето \"{0}\", е задължително.";
         public const string InvalidLoginAttemptMessage = "Невалидно потребителско име, или парола.";
         public const string ComparePasswordErrorMessage = "Полето \"Парола\" и полето \"Потвърди паролата\" не съвпадат.";
+        public const string InvalidTEntityIdErrorMessage = "{0} със ID: {1} не съсществува.";
+        public const string InvalidTEntityIdsErrorMessage = "Не съществува {0}, с ID, от изброените.";
     }
 }
