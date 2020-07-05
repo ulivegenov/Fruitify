@@ -2,6 +2,8 @@
 {
     using System.Reflection;
 
+    using CloudinaryDotNet;
+
     using Fruitify.Data;
     using Fruitify.Data.Common;
     using Fruitify.Data.Common.Repositories;
@@ -9,6 +11,8 @@
     using Fruitify.Data.Repositories;
     using Fruitify.Data.Seeding;
     using Fruitify.Services.Data;
+    using Fruitify.Services.Data.AppServices;
+    using Fruitify.Services.Data.AppServices.Contracts;
     using Fruitify.Services.Mapping;
     using Fruitify.Services.Messaging;
     using Fruitify.Web.ViewModels;
@@ -51,6 +55,16 @@
 
             services.AddSingleton(this.configuration);
 
+            // Cloudinary Api set
+            Account cloudinaryCredentials = new Account(
+                                        this.configuration["Cloudinary:CloudName"],
+                                        this.configuration["Cloudinary:ApiKey"],
+                                        this.configuration["Cloudinary:ApiSecret"]);
+
+            Cloudinary cloudinary = new Cloudinary(cloudinaryCredentials);
+
+            services.AddSingleton(cloudinary);
+
             // Data repositories
             services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
@@ -59,6 +73,7 @@
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
+            services.AddTransient<ICloudinaryService, CloudinaryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
