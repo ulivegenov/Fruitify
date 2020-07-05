@@ -50,5 +50,31 @@
 
             return this.Redirect("/Administration/Dashboard");
         }
+
+        public async Task<IActionResult> All(int id = 1)
+        {
+            var page = id;
+            var products = await this.productsService
+                                     .GetAllWithPagingAsync<ProductServiceDetailsModel>(GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
+
+            var viewModel = new ProductWebAllModel();
+
+            foreach (var product in products)
+            {
+                viewModel.Products.Add(product.To<ProductWebDetailsModel>());
+            }
+
+            var count = await this.productsService.GetCountAsync();
+            viewModel.PagesCount = (int)Math.Ceiling((double)count / GlobalConstants.ItemsPerPageAdmin);
+
+            if (viewModel.PagesCount == 0)
+            {
+                viewModel.PagesCount = 1;
+            }
+
+            viewModel.CurrentPage = page;
+
+            return this.View(viewModel);
+        }
     }
 }

@@ -68,6 +68,21 @@
             return entities;
         }
 
+        public async Task<IEnumerable<T>> GetAllWithPagingAsync<T>(int? take = null, int skip = 0)
+        {
+            var entities = this.deletableEntityRepository.All()
+                                                         .Skip(skip);
+
+            if (take.HasValue)
+            {
+                entities = entities.Take(take.Value);
+            }
+
+            var result = await entities.ToListAsync();
+
+            return result.Select(c => c.To<T>()).ToList();
+        }
+
         public async Task<T> GetByIdAsync<T>(TKey id)
         {
             var entity = await this.deletableEntityRepository.All()
@@ -77,6 +92,16 @@
             var entityServiceModel = entity.To<T>();
 
             return entityServiceModel;
+        }
+
+        public async Task<int> GetCountAsync()
+        {
+            var deletableEntities = await this.deletableEntityRepository.All()
+                                                                        .Select(e => e.Id)
+                                                                        .ToListAsync();
+            var count = deletableEntities.Count;
+
+            return count;
         }
     }
 }

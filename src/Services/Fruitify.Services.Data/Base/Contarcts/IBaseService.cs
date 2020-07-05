@@ -11,7 +11,11 @@
 
         Task<IEnumerable<T>> GetAllAsync<T>();
 
+        Task<IEnumerable<T>> GetAllWithPagingAsync<T>(int? take = null, int skip = 0);
+
         Task<T> GetByIdAsync<T>(TKey id);
+
+        Task<int> GetCountAsync();
 
         Task<int> EditAsync(IServiceDetailsModel<TKey> serviceDetailsModel);
 
