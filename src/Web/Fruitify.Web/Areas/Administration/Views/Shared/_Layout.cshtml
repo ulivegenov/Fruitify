@@ -97,10 +97,14 @@
         <partial name="_CookieConsentPartial" />
         <br />
         <main role="main" class="pb-3">
-            <div>
-                <partial name="AdminNavBar" />
+            <div class="row" style="height: 510px">
+                <div class="col-md-3" style="height: 500px">
+                    <partial name="AdminNavBar" />
+                </div>
+                <div class="col-md-9" style="height: 500px">
+                    @this.RenderBody()
+                </div>
             </div>
-            @this.RenderBody()
         </main>
     </div>
 

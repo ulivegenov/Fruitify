@@ -1,5 +1,25 @@
 ﻿@model Fruitify.Web.ViewModels.Administration.Dashboard.IndexViewModel
-@{ 
-    this.ViewData["Title"] = "Admin dashboard";
+@{ this.ViewData["Title"] = "Admin dashboard";
+
+    var imageBg1 = "https://res.cloudinary.com/dp70enihl/image/upload/v1588343467/FrutifyPics/bg_1_cmhcer.jpg";
+    var imageBg2 = "https://res.cloudinary.com/dp70enihl/image/upload/v1588343467/FrutifyPics/bg_2_n6xsie.jpg"; 
 }
+
+<section id="home-section" class="hero">
+    <div class="home-slider owl-carousel">
+        <div class="slider-item" style="background-image: url(@imageBg1); height: 500px">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true"></div>
+            </div>
+        </div>
+
+        <div class="slider-item" style="background-image: url(@imageBg2); height: 500px">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true"></div>
+            </div>
+        </div>
+    </div>
+</section>
 
