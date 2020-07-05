@@ -24,12 +24,11 @@
 
         public ProductType Type { get; set; }
 
-        [Required]
-        [MaxLength(EntitiesAttributeConstraints.DescriptionMaxLength)]
-        public string Description { get; set; }
-
         [Range(EntitiesAttributeConstraints.MinPrice, EntitiesAttributeConstraints.MaxPrice)]
         public double Price { get; set; }
+
+        [Range(EntitiesAttributeConstraints.MinPrice, EntitiesAttributeConstraints.MaxPrice)]
+        public double PromoPrice { get; set; }
 
         public bool DayProduct { get; set; }
 

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0-preview.6.20305.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Fruitify.Data.Models\Fruitify.Data.Models.csproj" />
+    <ProjectReference Include="..\Fruitify.Common\Fruitify.Common.csproj" />
+    <ProjectReference Include="..\Services\Fruitify.Services.Mapping\Fruitify.Services.Mapping.csproj" />
+  </ItemGroup>
+
+</Project>
