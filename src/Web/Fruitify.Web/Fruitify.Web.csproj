@@ -36,6 +36,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Fruitify.Data.Models\Fruitify.Data.Models.csproj" />
     <ProjectReference Include="..\..\Data\Fruitify.Data\Fruitify.Data.csproj" />
+    <ProjectReference Include="..\..\Fruitify.Common\Fruitify.Common.csproj" />
     <ProjectReference Include="..\..\Services\Fruitify.Services.Data\Fruitify.Services.Data.csproj" />
     <ProjectReference Include="..\..\Services\Fruitify.Services.Mapping\Fruitify.Services.Mapping.csproj" />
     <ProjectReference Include="..\..\Services\Fruitify.Services.Messaging\Fruitify.Services.Messaging.csproj" />

@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Head Index Partial View";
+
+    var imageBg1 = "https://res.cloudinary.com/dp70enihl/image/upload/v1588343467/FrutifyPics/bg_1_cmhcer.jpg";
+    var imageBg2 = "https://res.cloudinary.com/dp70enihl/image/upload/v1588343467/FrutifyPics/bg_2_n6xsie.jpg";
+}
+
+<section id="home-section" class="hero">
+    <div class="home-slider owl-carousel">
+        <div class="slider-item" style="background-image: url(@imageBg1);">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+                    <div class="col-md-12 text-center">
+                        <h1 class="mb-2">Ние предлагаме пресни плодове и зеленчуци</h1>
+                        <h2 class="subheading mb-4">Доставка на свежи плодове и зеленчуци</h2>
+                        <p><a href="#" class="btn btn-primary">Детайли</a></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-item" style="background-image: url(@imageBg2);">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+                    <div class="col-sm-12 text-center">
+                        <h1 class="mb-2">100% натурални храни</h1>
+                        <h2 class="subheading mb-4">Доставка на свежи плодове и зеленчуци</h2>
+                        <p><a href="#" class="btn btn-primary">Детайли</a></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

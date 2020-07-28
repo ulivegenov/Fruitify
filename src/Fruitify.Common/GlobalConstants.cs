@@ -26,5 +26,8 @@
         public const int ItemsPerPageAdmin = 5;
         public const int UsersPerPageAdmin = 10;
         public const int MorePagesToShow = 2;
+
+        // Views constants
+        public const int WeekProductsCount = 4;
     }
 }
