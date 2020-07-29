@@ -76,5 +76,13 @@
 
             return this.View(viewModel);
         }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var product = await this.productsService.GetByIdAsync<ProductServiceDetailsModel>(id);
+            var viewModel = product.To<ProductWebDetailsModel>();
+
+            return this.View(viewModel);
+        }
     }
 }
