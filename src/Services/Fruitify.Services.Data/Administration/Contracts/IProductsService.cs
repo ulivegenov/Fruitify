@@ -7,8 +7,8 @@
 
     public interface IProductsService : IBaseService<int>
     {
-        Task<IEnumerable<T>> GetAllWeekProducts<T>();
+        Task<IEnumerable<T>> GetAllWeekProductsAsync<T>();
 
-        Task<T> GetDayProduct<T>();
+        Task<T> GetDayProductAsync<T>();
     }
 }

@@ -23,14 +23,12 @@
 
         public async Task<IActionResult> Index()
         {
-            var products = await this.productsService.GetAllAsync<ProductServiceDetailsModel>();
             var viewModel = new IndexWebModel();
 
-            // Temporary code - TO DO method in ProductsService for extracting a DayProduct and WeekProducts
-            var webProducts = products.Select(p => p.To<ProductWebDetailsModel>()).ToList();
-            viewModel.DayProduct.Product = webProducts.FirstOrDefault();
-            viewModel.WeekProducts.Products = webProducts.Take(4)
-                                                         .ToList();
+            var webProducts = await this.productsService.GetAllWeekProductsAsync<ProductServiceDetailsModel>();
+            var dayProduct = await this.productsService.GetDayProductAsync<ProductServiceDetailsModel>();
+            viewModel.DayProduct.Product = dayProduct.To<ProductWebDetailsModel>();
+            viewModel.WeekProducts.Products = webProducts.Select(p => p.To<ProductWebDetailsModel>()).ToList();
 
             return this.View(viewModel);
         }

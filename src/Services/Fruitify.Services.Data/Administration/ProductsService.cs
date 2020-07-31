@@ -22,7 +22,7 @@
             this.productsRepository = productsRepository;
         }
 
-        public async Task<IEnumerable<T>> GetAllWeekProducts<T>()
+        public async Task<IEnumerable<T>> GetAllWeekProductsAsync<T>()
         {
             var weekProducts = await this.productsRepository.All()
                                                             .Where(p => p.WeekProduct == true)
@@ -33,7 +33,7 @@
             return weekProducts;
         }
 
-        public async Task<T> GetDayProduct<T>()
+        public async Task<T> GetDayProductAsync<T>()
         {
             var dayProduct = await this.productsRepository.All()
                                                           .Where(p => p.DayProduct == true)
