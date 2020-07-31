@@ -27,8 +27,8 @@
 
             var webProducts = await this.productsService.GetAllWeekProductsAsync<ProductServiceDetailsModel>();
             var dayProduct = await this.productsService.GetDayProductAsync<ProductServiceDetailsModel>();
-            viewModel.DayProduct.Product = dayProduct.To<ProductWebDetailsModel>();
-            viewModel.WeekProducts.Products = webProducts.Select(p => p.To<ProductWebDetailsModel>()).ToList();
+            viewModel.DayProduct.Product = dayProduct?.To<ProductWebDetailsModel>();
+            viewModel.WeekProducts.Products = webProducts?.Select(p => p.To<ProductWebDetailsModel>()).ToList();
 
             return this.View(viewModel);
         }

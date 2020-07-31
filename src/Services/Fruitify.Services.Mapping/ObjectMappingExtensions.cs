@@ -5,6 +5,7 @@
     public static class ObjectMappingExtensions
     {
         public static T To<T>(this object origin)
+        
         {
             if (origin == null)
             {

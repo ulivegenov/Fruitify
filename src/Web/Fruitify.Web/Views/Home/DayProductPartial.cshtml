@@ -6,16 +6,20 @@
     var imgDayProductBg = "https://res.cloudinary.com/dp70enihl/image/upload/v1588343466/FrutifyPics/bg_3_wnmb84.jpg";
 }
 
-<section class="ftco-section img" style="background-image: url(@imgDayProductBg);">
-    <div class="container">
-        <div class="row justify-content-end">
-            <div class="col-md-6 heading-section deal-of-the-day">
-                <span class="subheading">Най - добра цена</span>
-                <h2 class="mb-4">Продукт на деня</h2>
-                <div class="col-md-7">
-                    <partial name="ProductPartial" model="Model.Product"/>
+@if (Model.Product != null)
+{
+    <section class="ftco-section img" style="background-image: url(@imgDayProductBg);">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-6 heading-section deal-of-the-day">
+                    <span class="subheading">Най - добра цена</span>
+                    <h2 class="mb-4">Продукт на деня</h2>
+                    <div class="col-md-7">
+                        <partial name="ProductPartial" model="Model.Product" />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+}
+
