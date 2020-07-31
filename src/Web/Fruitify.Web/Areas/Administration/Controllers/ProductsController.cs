@@ -84,5 +84,31 @@
 
             return this.View(viewModel);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(ProductWebDetailsModel productEditModel)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(productEditModel);
+            }
+
+            var serviceProduct = productEditModel.To<ProductServiceDetailsModel>();
+
+            //if (productEditModel.Image.Length > 0)
+            //{
+            //    var imageUrl = await this.cloudinaryService.UploadImageAsync(
+            //                                                            productEditModel.Image,
+            //                                                            $"{serviceProduct.Name}",
+            //                                                            GlobalConstants.ProductsImagesFolder);
+
+            //    serviceProduct.Image = imageUrl;
+            //}
+
+            await this.productsService.EditAsync(serviceProduct);
+
+            return this.Redirect($"/Administration/Products/Details/{serviceProduct.Id}");
+        }
+
     }
 }

@@ -6,7 +6,7 @@
     using Fruitify.Services.Mapping;
     using Frutify.Services.Models.Administration;
 
-    public class ProductWebDetailsModel : IMapFrom<ProductServiceDetailsModel>
+    public class ProductWebDetailsModel : IMapFrom<ProductServiceDetailsModel>, IMapTo<ProductServiceDetailsModel>
     {
         public int Id { get; set; }
 
@@ -19,9 +19,6 @@
         [Display(Name = "Цена")]
         public double Price { get; set; }
 
-        [Display(Name = "Снимка")]
-        public string Image { get; set; }
-
         [Display(Name = "Промоционална цена")]
         public double PromoPrice { get; set; }
 
@@ -30,5 +27,7 @@
 
         [Display(Name = "Продукт на седмицата")]
         public bool WeekProduct { get; set; }
+
+        public string Image { get; set; }
     }
 }
