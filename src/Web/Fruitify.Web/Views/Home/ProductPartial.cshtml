@@ -7,7 +7,7 @@
 <div class="product card h-100">
     <a href="#" class="img-prod">
         <img class="img-fluid" src="@Model.Image" alt="Colorlib Template">
-        <span class="status">5%</span>
+        <span class="status">@(Math.Truncate((Model.PromoPrice / Model.Price - 1) * 100))%</span>
         <div class="overlay"></div>
     </a>
     <div class="text py-3 pb-4 px-3 text-center">
