@@ -1,0 +1,28 @@
+﻿@using Fruitify.Common
+
+@{
+    ViewData["Title"] = "Products table view";
+}
+
+<div class="row">
+    <div class="text-center">
+        <table class="table-hover table-striped" width="100%" border="1" cellspacing="2" cellpadding="4">
+            <thead class="table-head-fixed tab">
+                <tr>
+                    <th scope="col">
+                        <a type="button" class="btn btn-primary py-1 px-1" asp-area="Administration" asp-controller="Products" asp-action="Create">
+                            + Нов продукт
+                        </a>
+                    </th>
+                    <th scope="col">Име</th>
+                    <th scope="col">Цена</th>
+                    <th scope="col">Промо цена</th>
+                    <th scope="col">Продукт на деня</th>
+                    <th scope="col">Продукт на седмицата</th>
+            </thead>
+            <tbody>
+                <partial name="ProductPartial" />
+            </tbody>
+        </table>
+    </div>
+</div>
