@@ -6,6 +6,7 @@
     using System.Threading.Tasks;
 
     using Fruitify.Common;
+    using Fruitify.Data.Models.Enums.Product;
     using Fruitify.Services.Data.Administration.Contracts;
     using Fruitify.Services.Data.AppServices.Contracts;
     using Fruitify.Services.Mapping;
@@ -55,22 +56,50 @@
         {
             var page = id;
             var products = await this.productsService
-                                     .GetAllWithPagingAsync<ProductServiceDetailsModel>(GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
+                                     .GetAllWithPagingAsync<ProductServiceDetailsModel>(
+                                      GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
 
             var viewModel = new ProductWebAllModel();
 
-            foreach (var product in products)
-            {
-                viewModel.Products.Add(product.To<ProductWebDetailsModel>());
-            }
+            this.AddProductsToViewModel(viewModel, products);
 
-            var count = await this.productsService.GetCountAsync();
-            viewModel.PagesCount = (int)Math.Ceiling((double)count / GlobalConstants.ItemsPerPageAdmin);
+            viewModel.PagesCount = await this.GetPagesCount();
 
-            if (viewModel.PagesCount == 0)
-            {
-                viewModel.PagesCount = 1;
-            }
+            viewModel.CurrentPage = page;
+
+            return this.View(viewModel);
+        }
+
+        public async Task<IActionResult> AllFruits(int id = 1)
+        {
+            var page = id;
+            var products = await this.productsService
+                                     .GetAllProductsByTypeWithPagingAsync<ProductServiceDetailsModel>(
+                                      ProductType.Fruit, GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
+
+            var viewModel = new ProductWebAllModel();
+
+            this.AddProductsToViewModel(viewModel, products);
+
+            viewModel.PagesCount = await this.GetPagesCount(ProductType.Fruit);
+
+            viewModel.CurrentPage = page;
+
+            return this.View(viewModel);
+        }
+
+        public async Task<IActionResult> AllVegetables(int id = 1)
+        {
+            var page = id;
+            var products = await this.productsService
+                                     .GetAllProductsByTypeWithPagingAsync<ProductServiceDetailsModel>(
+                                      ProductType.Vegetable, GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
+
+            var viewModel = new ProductWebAllModel();
+
+            this.AddProductsToViewModel(viewModel, products);
+
+            viewModel.PagesCount = await this.GetPagesCount(ProductType.Vegetable);
 
             viewModel.CurrentPage = page;
 
@@ -95,20 +124,32 @@
 
             var serviceProduct = productEditModel.To<ProductServiceDetailsModel>();
 
-            //if (productEditModel.Image.Length > 0)
-            //{
-            //    var imageUrl = await this.cloudinaryService.UploadImageAsync(
-            //                                                            productEditModel.Image,
-            //                                                            $"{serviceProduct.Name}",
-            //                                                            GlobalConstants.ProductsImagesFolder);
-
-            //    serviceProduct.Image = imageUrl;
-            //}
-
             await this.productsService.EditAsync(serviceProduct);
 
             return this.Redirect($"/Administration/Products/Details/{serviceProduct.Id}");
         }
 
+        private async Task<int> GetPagesCount(ProductType? productType = null)
+        {
+            var productsCount = productType == null ? await this.productsService.GetCountAsync()
+                                                    : await this.productsService.GetCountAsync(productType);
+
+            var pagesCount = (int)Math.Ceiling((double)productsCount / GlobalConstants.ItemsPerPageAdmin);
+
+            if (pagesCount == 0)
+            {
+                pagesCount = 1;
+            }
+
+            return pagesCount;
+        }
+
+        private void AddProductsToViewModel(ProductWebAllModel viewModel, IEnumerable<ProductServiceDetailsModel> products)
+        {
+            foreach (var product in products)
+            {
+                viewModel.Products.Add(product.To<ProductWebDetailsModel>());
+            }
+        }
     }
 }

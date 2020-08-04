@@ -7,6 +7,7 @@
     using Fruitify.Common;
     using Fruitify.Data.Common.Repositories;
     using Fruitify.Data.Models;
+    using Fruitify.Data.Models.Enums.Product;
     using Fruitify.Services.Data.Administration.Contracts;
     using Fruitify.Services.Data.Base;
     using Fruitify.Services.Mapping;
@@ -22,6 +23,23 @@
             this.productsRepository = productsRepository;
         }
 
+        public async Task<IEnumerable<T>> GetAllProductsByTypeWithPagingAsync<T>(ProductType productType, int? take = null, int skip = 0)
+        {
+            var products = this.productsRepository.All()
+                                                  .Where(p => p.Type.Equals(productType))
+                                                  .To<T>()
+                                                  .Skip(skip);
+
+            if (take.HasValue)
+            {
+                products = products.Take(take.Value);
+            }
+
+            var result = await products.ToListAsync();
+
+            return result.ToList();
+        }
+
         public async Task<IEnumerable<T>> GetAllWeekProductsAsync<T>()
         {
             var weekProducts = await this.productsRepository.All()
@@ -31,6 +49,17 @@
                                                             .ToListAsync();
 
             return weekProducts;
+        }
+
+        public async Task<int> GetCountAsync(ProductType? productType)
+        {
+            var products = await this.productsRepository.All()
+                                                        .Where(p => p.Type.Equals(productType))
+                                                        .Select(p => p.Id)
+                                                        .ToListAsync();
+            var count = products.Count;
+
+            return count;
         }
 
         public async Task<T> GetDayProductAsync<T>()
