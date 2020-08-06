@@ -1,4 +1,4 @@
-﻿namespace Fruitify.Web.ViewModels.Main
+﻿namespace Fruitify.Web.ViewModels.Main.Home
 {
     public class IndexWebModel
     {

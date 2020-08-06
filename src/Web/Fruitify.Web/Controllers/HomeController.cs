@@ -8,7 +8,7 @@
     using Fruitify.Services.Mapping;
     using Fruitify.Web.ViewModels;
     using Fruitify.Web.ViewModels.Administration.Products;
-    using Fruitify.Web.ViewModels.Main;
+    using Fruitify.Web.ViewModels.Main.Home;
     using Frutify.Services.Models.Administration;
     using Microsoft.AspNetCore.Mvc;
 

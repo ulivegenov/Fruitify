@@ -2,6 +2,8 @@
 {
     using System.Collections.Generic;
 
+    using Fruitify.Web.ViewModels.Main.Home;
+
     public class ProductWebAllModel
     {
         public int CurrentPage { get; set; }
