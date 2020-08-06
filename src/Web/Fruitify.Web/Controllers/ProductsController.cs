@@ -39,6 +39,42 @@
             return this.View(viewModel);
         }
 
+        public async Task<IActionResult> AllFruits(int id = 1)
+        {
+            var page = id;
+            var products = await this.productsService
+                                     .GetAllProductsByTypeWithPagingAsync<ProductServiceDetailsModel>(
+                                      ProductType.Fruit, GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
+
+            var viewModel = new ProductWebAllModel();
+
+            this.AddProductsToViewModel(viewModel, products);
+
+            viewModel.PagesCount = await this.GetPagesCount(ProductType.Fruit);
+
+            viewModel.CurrentPage = page;
+
+            return this.View(viewModel);
+        }
+
+        public async Task<IActionResult> AllVegetables(int id = 1)
+        {
+            var page = id;
+            var products = await this.productsService
+                                     .GetAllProductsByTypeWithPagingAsync<ProductServiceDetailsModel>(
+                                      ProductType.Vegetable, GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
+
+            var viewModel = new ProductWebAllModel();
+
+            this.AddProductsToViewModel(viewModel, products);
+
+            viewModel.PagesCount = await this.GetPagesCount(ProductType.Vegetable);
+
+            viewModel.CurrentPage = page;
+
+            return this.View(viewModel);
+        }
+
         private async Task<int> GetPagesCount(ProductType? productType = null)
         {
             var productsCount = productType == null ? await this.productsService.GetCountAsync()
