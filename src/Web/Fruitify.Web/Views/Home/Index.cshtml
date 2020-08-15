@@ -4,12 +4,15 @@
     this.ViewData["Title"] = "Home Page";
 }
 
-<partial name="HeadIndexPartial" />
+<div class="mb-4">
+    <partial name="HeadIndexPartial" />
 
-<partial name="SlogansPartial" />
+    <partial name="SlogansPartial" />
 
-<partial name="MainIndexPartial" />
+    <partial name="MainIndexPartial" />
 
-<partial name="WeekProductsPartial" model="Model.WeekProducts"/>
+    <partial name="WeekProductsPartial" model="Model.WeekProducts" />
 
-<partial name="DayProductPartial" model="Model.DayProduct" />
+    <partial name="DayProductPartial" model="Model.DayProduct" />
+</div>
+
