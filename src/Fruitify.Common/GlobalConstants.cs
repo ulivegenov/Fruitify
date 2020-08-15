@@ -22,9 +22,8 @@
         public const string ProductsImagesFolder = "FruitifyPics/Products";
 
         // Controllers constants
-        public const int ItemsPerPage = 6;
-        public const int ItemsPerPageAdmin = 8;
-        public const int UsersPerPageAdmin = 10;
+        public const int ItemsPerPage = 8;
+        public const int ItemsPerPageAdmin = 11;
         public const int MorePagesToShow = 2;
 
         // Views constants

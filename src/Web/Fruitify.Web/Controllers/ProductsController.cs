@@ -26,7 +26,7 @@
             var page = id;
             var products = await this.productsService
                                      .GetAllWithPagingAsync<ProductServiceDetailsModel>(
-                                      GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
+                                      GlobalConstants.ItemsPerPage, (page - 1) * GlobalConstants.ItemsPerPage);
 
             var viewModel = new ProductWebAllModel();
 
@@ -44,7 +44,7 @@
             var page = id;
             var products = await this.productsService
                                      .GetAllProductsByTypeWithPagingAsync<ProductServiceDetailsModel>(
-                                      ProductType.Fruit, GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
+                                      ProductType.Fruit, GlobalConstants.ItemsPerPage, (page - 1) * GlobalConstants.ItemsPerPage);
 
             var viewModel = new ProductWebAllModel();
 
@@ -62,7 +62,7 @@
             var page = id;
             var products = await this.productsService
                                      .GetAllProductsByTypeWithPagingAsync<ProductServiceDetailsModel>(
-                                      ProductType.Vegetable, GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
+                                      ProductType.Vegetable, GlobalConstants.ItemsPerPage, (page - 1) * GlobalConstants.ItemsPerPage);
 
             var viewModel = new ProductWebAllModel();
 
@@ -80,7 +80,7 @@
             var productsCount = productType == null ? await this.productsService.GetCountAsync()
                                                     : await this.productsService.GetCountAsync(productType);
 
-            var pagesCount = (int)Math.Ceiling((double)productsCount / GlobalConstants.ItemsPerPageAdmin);
+            var pagesCount = (int)Math.Ceiling((double)productsCount / GlobalConstants.ItemsPerPage);
 
             if (pagesCount == 0)
             {
