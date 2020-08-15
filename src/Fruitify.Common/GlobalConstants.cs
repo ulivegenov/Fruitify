@@ -17,6 +17,7 @@
         public const string ComparePasswordErrorMessage = "Полето \"Парола\" и полето \"Потвърди паролата\" не съвпадат.";
         public const string InvalidTEntityIdErrorMessage = "{0} със ID: {1} не съсществува.";
         public const string InvalidTEntityIdsErrorMessage = "Не съществува {0}, с ID, от изброените.";
+        public const string DeleteProductErrorMessage = "Failed to delete {0}.";
 
         // Cloudinary constants
         public const string ProductsImagesFolder = "FruitifyPics/Products";

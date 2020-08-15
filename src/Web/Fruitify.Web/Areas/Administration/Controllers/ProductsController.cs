@@ -128,6 +128,20 @@
             return this.Redirect($"/Administration/Products/Details/{serviceProduct.Id}");
         }
 
+        [HttpPost]
+        [Route("/Administration/Products/Details/{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (!(await this.productsService.DeleteByIdAsync(id) > 0))
+            {
+                this.TempData["Error"] = GlobalConstants.DeleteProductErrorMessage;
+
+                return this.View();
+            }
+
+            return this.Redirect("/Administration/Products/All");
+        }
+
         private async Task<int> GetPagesCount(ProductType? productType = null)
         {
             var productsCount = productType == null ? await this.productsService.GetCountAsync()
