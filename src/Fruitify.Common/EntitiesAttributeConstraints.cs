@@ -25,7 +25,7 @@
         public const double MinPrice = 0;
         public const double MaxPrice = 10000;
         public const int DescriptionMinLength = 10;
-        public const int DescriptionMaxLength = 250;
+        public const int DescriptionMaxLength = 5000;
 
         // Image
         public const int UrlMinLength = 5;
