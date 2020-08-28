@@ -9,7 +9,7 @@
     using Fruitify.Services.Data.Administration.Contracts;
     using Fruitify.Services.Mapping;
     using Fruitify.Web.ViewModels.Administration.Products;
-    using Frutify.Services.Models.Administration;
+    using Frutify.Services.Models.Administration.Products;
     using Microsoft.AspNetCore.Mvc;
 
     public class ProductsController : BaseController
