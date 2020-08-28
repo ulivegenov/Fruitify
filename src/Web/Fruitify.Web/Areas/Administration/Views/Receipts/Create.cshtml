@@ -1,0 +1,46 @@
+﻿@using Fruitify.Data.Models.Enums.Receipt;
+
+@model Fruitify.Web.ViewModels.Administration.Receipts.ReceiptWebInputModel
+
+@{
+    this.ViewData["Title"] = "Create Receipt";
+}
+
+<div class="row">
+    <div style="margin:auto">
+        <section>
+            <form id="account" enctype="multipart/form-data" method="post">
+                <h4 class="text-center">Добави нова рецепта</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Type" class="label"></label>
+                    <select class="form-control" asp-for="Type" asp-items="Html.GetEnumSelectList<ReceiptType>()">
+                        <option value="">Избери вид</option>
+                    </select>
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image"></label>
+                    <input asp-for="Image" name="Image" type="file" />
+                    <br>
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <hr />
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Създай</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>

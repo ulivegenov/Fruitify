@@ -18,7 +18,7 @@
     using Fruitify.Services.Mapping;
     using Fruitify.Services.Messaging;
     using Fruitify.Web.ViewModels;
-    using Frutify.Services.Models.Administration;
+    using Frutify.Services.Models.Administration.Products;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -77,6 +77,7 @@
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<ICloudinaryService, CloudinaryService>();
             services.AddTransient<IProductsService, ProductsService>();
+            services.AddTransient<IReceiptsService, ReceiptsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
