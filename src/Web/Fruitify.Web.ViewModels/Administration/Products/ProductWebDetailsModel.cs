@@ -4,7 +4,7 @@
 
     using Fruitify.Data.Models.Enums.Product;
     using Fruitify.Services.Mapping;
-    using Frutify.Services.Models.Administration;
+    using Frutify.Services.Models.Administration.Products;
 
     public class ProductWebDetailsModel : IMapFrom<ProductServiceDetailsModel>, IMapTo<ProductServiceDetailsModel>
     {

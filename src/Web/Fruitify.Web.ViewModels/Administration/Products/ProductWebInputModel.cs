@@ -6,7 +6,7 @@
     using Fruitify.Common;
     using Fruitify.Data.Models.Enums.Product;
     using Fruitify.Services.Mapping;
-    using Frutify.Services.Models.Administration;
+    using Frutify.Services.Models.Administration.Products;
 
     using Microsoft.AspNetCore.Http;
 
