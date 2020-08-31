@@ -21,6 +21,7 @@
 
         // Cloudinary constants
         public const string ProductsImagesFolder = "FruitifyPics/Products";
+        public const string ReceiptsImagesFolder = "FruitifyPics/Receipts";
 
         // Controllers constants
         public const int ItemsPerPage = 8;
