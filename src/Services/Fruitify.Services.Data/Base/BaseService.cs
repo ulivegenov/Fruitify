@@ -103,5 +103,7 @@
 
             return count;
         }
+
+        public abstract Task<int> GetCountAsync(string type);
     }
 }

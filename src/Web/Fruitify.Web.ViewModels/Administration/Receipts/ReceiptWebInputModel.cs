@@ -5,11 +5,12 @@
     using Fruitify.Common;
     using Fruitify.Data.Models.Enums.Receipt;
     using Fruitify.Services.Mapping;
+    using Fruitify.Web.ViewModels.Administration.Contracts;
     using Frutify.Services.Models.Administration.Receipts;
 
     using Microsoft.AspNetCore.Http;
 
-    public class ReceiptWebInputModel : IMapTo<ReceiptServiceInputModel>
+    public class ReceiptWebInputModel : IMapTo<ReceiptServiceInputModel>, IWebInputModel
     {
         [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
         [StringLength(EntitiesAttributeConstraints.NameMaxLength, ErrorMessage = GlobalConstants.CharactersCountMessage, MinimumLength = EntitiesAttributeConstraints.NameMinLength)]

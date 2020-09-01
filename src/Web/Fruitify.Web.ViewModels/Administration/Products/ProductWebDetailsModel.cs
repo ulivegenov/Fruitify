@@ -4,9 +4,10 @@
 
     using Fruitify.Data.Models.Enums.Product;
     using Fruitify.Services.Mapping;
+    using Fruitify.Web.ViewModels.Administration.Contracts;
     using Frutify.Services.Models.Administration.Products;
 
-    public class ProductWebDetailsModel : IMapFrom<ProductServiceDetailsModel>, IMapTo<ProductServiceDetailsModel>
+    public class ProductWebDetailsModel : IMapFrom<ProductServiceDetailsModel>, IMapTo<ProductServiceDetailsModel>, IWebDetailsModel
     {
         public int Id { get; set; }
 

@@ -17,6 +17,8 @@
 
         Task<int> GetCountAsync();
 
+        Task<int> GetCountAsync(string type);
+
         Task<int> EditAsync(IServiceDetailsModel<TKey> serviceDetailsModel);
 
         Task<int> DeleteByIdAsync(TKey id);

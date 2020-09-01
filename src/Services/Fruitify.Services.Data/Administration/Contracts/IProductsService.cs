@@ -8,8 +8,6 @@
 
     public interface IProductsService : IBaseService<int>
     {
-        Task<int> GetCountAsync(ProductType? productType);
-
         Task<IEnumerable<T>> GetAllWeekProductsAsync<T>();
 
         Task<IEnumerable<T>> GetAllProductsByTypeWithPagingAsync<T>(ProductType productType, int? take = null, int skip = 0);

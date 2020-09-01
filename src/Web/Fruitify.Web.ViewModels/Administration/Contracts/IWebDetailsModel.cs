@@ -1,10 +1,10 @@
-﻿using Fruitify.Data.Models.Enums.Product;
-
-namespace Frutify.Services.Models.Contracts
+﻿namespace Fruitify.Web.ViewModels.Administration.Contracts
 {
-    public interface IServiceDetailsModel<TKey>
+    using Fruitify.Data.Models.Enums.Product;
+
+    public interface IWebDetailsModel
     {
-        public TKey Id { get; set; }
+        int Id { get; set; }
 
         string Name { get; set; }
 
@@ -12,12 +12,12 @@ namespace Frutify.Services.Models.Contracts
 
         double Price { get; set; }
 
-        string Image { get; set; }
-
         double PromoPrice { get; set; }
 
         bool DayProduct { get; set; }
 
         bool WeekProduct { get; set; }
+
+        string Image { get; set; }
     }
 }

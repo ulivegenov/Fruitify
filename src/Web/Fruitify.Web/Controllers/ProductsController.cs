@@ -50,7 +50,7 @@
 
             this.AddProductsToViewModel(viewModel, products);
 
-            viewModel.PagesCount = await this.GetPagesCount(ProductType.Fruit);
+            viewModel.PagesCount = await this.GetPagesCount(ProductType.Fruit.ToString());
 
             viewModel.CurrentPage = page;
 
@@ -68,17 +68,17 @@
 
             this.AddProductsToViewModel(viewModel, products);
 
-            viewModel.PagesCount = await this.GetPagesCount(ProductType.Vegetable);
+            viewModel.PagesCount = await this.GetPagesCount(ProductType.Vegetable.ToString());
 
             viewModel.CurrentPage = page;
 
             return this.View(viewModel);
         }
 
-        private async Task<int> GetPagesCount(ProductType? productType = null)
+        private async Task<int> GetPagesCount(string type = null)
         {
-            var productsCount = productType == null ? await this.productsService.GetCountAsync()
-                                                    : await this.productsService.GetCountAsync(productType);
+            var productsCount = type == null ? await this.productsService.GetCountAsync()
+                                                    : await this.productsService.GetCountAsync(type);
 
             var pagesCount = (int)Math.Ceiling((double)productsCount / GlobalConstants.ItemsPerPage);
 
@@ -94,7 +94,7 @@
         {
             foreach (var product in products)
             {
-                viewModel.Products.Add(product.To<ProductWebDetailsModel>());
+                viewModel.Entities.Add(product.To<ProductWebDetailsModel>());
             }
         }
     }

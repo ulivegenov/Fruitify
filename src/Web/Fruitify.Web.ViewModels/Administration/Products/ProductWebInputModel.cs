@@ -6,11 +6,12 @@
     using Fruitify.Common;
     using Fruitify.Data.Models.Enums.Product;
     using Fruitify.Services.Mapping;
+    using Fruitify.Web.ViewModels.Administration.Contracts;
     using Frutify.Services.Models.Administration.Products;
 
     using Microsoft.AspNetCore.Http;
 
-    public class ProductWebInputModel : IMapTo<ProductServiceInputModel>
+    public class ProductWebInputModel : IMapTo<ProductServiceInputModel>, IWebInputModel
     {
         [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
         [StringLength(EntitiesAttributeConstraints.NameMaxLength, ErrorMessage = GlobalConstants.CharactersCountMessage, MinimumLength = EntitiesAttributeConstraints.NameMinLength)]

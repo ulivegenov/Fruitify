@@ -1,11 +1,12 @@
 ﻿namespace Fruitify.Web.Areas.Administration.Controllers
 {
     using Fruitify.Services.Data;
+    using Fruitify.Web.Controllers;
     using Fruitify.Web.ViewModels.Administration.Dashboard;
 
     using Microsoft.AspNetCore.Mvc;
 
-    public class DashboardController : AdministrationController
+    public class DashboardController : AdminBaseController
     {
         private readonly ISettingsService settingsService;
 

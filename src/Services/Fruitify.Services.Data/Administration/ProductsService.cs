@@ -51,10 +51,10 @@
             return weekProducts;
         }
 
-        public async Task<int> GetCountAsync(ProductType? productType)
+        public override async Task<int> GetCountAsync(string type)
         {
             var products = await this.productsRepository.All()
-                                                        .Where(p => p.Type.Equals(productType))
+                                                        .Where(p => p.Type.ToString().Equals(type))
                                                         .Select(p => p.Id)
                                                         .ToListAsync();
             var count = products.Count;

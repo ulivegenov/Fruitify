@@ -20,8 +20,9 @@
         public const string DeleteProductErrorMessage = "Failed to delete {0}.";
 
         // Cloudinary constants
-        public const string ProductsImagesFolder = "FruitifyPics/Products";
-        public const string ReceiptsImagesFolder = "FruitifyPics/Receipts";
+        //public const string ProductsImagesFolder = "FruitifyPics/Products";
+        //public const string ReceiptsImagesFolder = "FruitifyPics/Receipts";
+        public const string ImagesFolder = "FruitifyPics/{0}s";
 
         // Controllers constants
         public const int ItemsPerPage = 8;
