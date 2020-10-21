@@ -7,10 +7,8 @@
     using Fruitify.Data.Models;
     using Fruitify.Services.Data.Administration.Contracts;
     using Fruitify.Services.Data.AppServices.Contracts;
-    using Fruitify.Services.Mapping;
     using Fruitify.Web.ViewModels.Administration.Receipts;
     using Frutify.Services.Models.Administration.Receipts;
-    using Microsoft.AspNetCore.Mvc;
 
     public class ReceiptsController : AdministrationController<Receipt, ReceiptWebInputModel,
                                                                ReceiptServiceInputModel, ReceiptServiceDetailsModel,
@@ -42,25 +40,5 @@
 
             return pagesCount;
         }
-
-        //[HttpPost]
-        //public async Task<IActionResult> Create(ReceiptWebInputModel receiptWebInputModel)
-        //{
-        //    if (!this.ModelState.IsValid)
-        //    {
-        //        return this.View(receiptWebInputModel);
-        //    }
-
-        //    var receiptServiceModel = receiptWebInputModel.To<ReceiptServiceInputModel>();
-        //    var imageUrl = await this.cloudinaryService.UploadImageAsync(
-        //                                                                 receiptWebInputModel.Image,
-        //                                                                 $"{receiptServiceModel.Name}",
-        //                                                                 GlobalConstants.ReceiptsImagesFolder);
-        //    receiptServiceModel.Image = imageUrl;
-
-        //    await this.receiptsService.CreateAsync(receiptServiceModel);
-
-        //    return this.Redirect("/Administration/Dashboard");
-        //}
     }
 }

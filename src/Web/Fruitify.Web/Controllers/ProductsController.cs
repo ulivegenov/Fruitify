@@ -78,7 +78,7 @@
         private async Task<int> GetPagesCount(string type = null)
         {
             var productsCount = type == null ? await this.productsService.GetCountAsync()
-                                                    : await this.productsService.GetCountAsync(type);
+                                             : await this.productsService.GetCountAsync(type);
 
             var pagesCount = (int)Math.Ceiling((double)productsCount / GlobalConstants.ItemsPerPage);
 

@@ -1,9 +1,11 @@
 ﻿namespace Fruitify.Web.ViewModels.Administration.Receipts
 {
     using Fruitify.Data.Models.Enums.Product;
+    using Fruitify.Services.Mapping;
     using Fruitify.Web.ViewModels.Administration.Contracts;
+    using Frutify.Services.Models.Administration.Receipts;
 
-    public class ReceiptWebDetailsModel : IWebDetailsModel
+    public class ReceiptWebDetailsModel : IMapFrom<ReceiptServiceDetailsModel>, IMapTo<ReceiptServiceDetailsModel>, IWebDetailsModel
     {
         public int Id { get; set; }
 

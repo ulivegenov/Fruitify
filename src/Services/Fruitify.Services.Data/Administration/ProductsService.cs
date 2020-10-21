@@ -54,7 +54,7 @@
         public override async Task<int> GetCountAsync(string type)
         {
             var products = await this.productsRepository.All()
-                                                        .Where(p => p.Type.ToString().Equals(type))
+                                                        .Where(p => p.Type.Equals(type))
                                                         .Select(p => p.Id)
                                                         .ToListAsync();
             var count = products.Count;

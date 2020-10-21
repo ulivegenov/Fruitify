@@ -1,12 +1,11 @@
 ﻿namespace Frutify.Services.Models.Administration.Receipts
 {
+    using Fruitify.Data.Models;
     using Fruitify.Data.Models.Enums.Product;
+    using Fruitify.Services.Mapping;
     using Frutify.Services.Models.Contracts;
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
 
-    public class ReceiptServiceDetailsModel : IServiceDetailsModel<int>
+    public class ReceiptServiceDetailsModel : IMapTo<Receipt>, IMapFrom<Receipt>, IServiceDetailsModel<int>
     {
         public int Id { get; set; }
         public string Name { get; set ; }
