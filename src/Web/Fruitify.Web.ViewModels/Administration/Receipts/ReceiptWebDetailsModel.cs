@@ -1,6 +1,9 @@
 ﻿namespace Fruitify.Web.ViewModels.Administration.Receipts
 {
-    using Fruitify.Data.Models.Enums.Product;
+    using System.ComponentModel.DataAnnotations;
+
+    using Fruitify.Common;
+    using Fruitify.Data.Models.Enums.Receipt;
     using Fruitify.Services.Mapping;
     using Fruitify.Web.ViewModels.Administration.Contracts;
     using Frutify.Services.Models.Administration.Receipts;
@@ -9,18 +12,20 @@
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
+        [StringLength(EntitiesAttributeConstraints.NameMaxLength, ErrorMessage = GlobalConstants.CharactersCountMessage, MinimumLength = EntitiesAttributeConstraints.NameMinLength)]
+        [Display(Name = "Име")]
         public string Name { get; set; }
 
-        public ProductType Type { get; set; }
-
-        public double Price { get; set; }
-
-        public double PromoPrice { get; set; }
-
-        public bool DayProduct { get; set; }
-
-        public bool WeekProduct { get; set; }
+        [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
+        [Display(Name = "Вид рецепта")]
+        public ReceiptType Type { get; set; }
 
         public string Image { get; set; }
+
+        [Required(ErrorMessage = GlobalConstants.RequiredFieldMessage)]
+        [StringLength(EntitiesAttributeConstraints.DescriptionMaxLength, ErrorMessage = GlobalConstants.CharactersCountMessage, MinimumLength = EntitiesAttributeConstraints.DescriptionMinLength)]
+        [Display(Name = "Съдържание на рецептата")]
+        public string Description { get; set; }
     }
 }

@@ -60,6 +60,29 @@
             return this.Redirect("/Administration/Dashboard");
         }
 
+        public async Task<IActionResult> Details(int id)
+        {
+            var product = await this.entityService.GetByIdAsync<TEntityServiceDetailsModel>(id);
+            var viewModel = product.To<TEntityWebDetailsModel>();
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(TEntityWebDetailsModel entityEditModel)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(entityEditModel);
+            }
+
+            var serviceTEntity = entityEditModel.To<TEntityServiceDetailsModel>();
+
+            await this.entityService.EditAsync(serviceTEntity);
+
+            return this.Redirect($"/Administration/{typeof(TEntity).Name}s/All");
+        }
+
         public async Task<IActionResult> All(TEntityWebAllModel viewModel, int id = 1)
         {
             var page = id;

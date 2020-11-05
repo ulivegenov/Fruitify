@@ -10,6 +10,8 @@
     using Fruitify.Web.ViewModels.Administration.Receipts;
     using Frutify.Services.Models.Administration.Receipts;
 
+    using Microsoft.AspNetCore.Mvc;
+
     public class ReceiptsController : AdministrationController<Receipt, ReceiptWebInputModel,
                                                                ReceiptServiceInputModel, ReceiptServiceDetailsModel,
                                                                ReceiptWebAllModel, ReceiptWebDetailsModel>
@@ -26,12 +28,26 @@
             this.cloudinaryService = cloudinaryService;
         }
 
+        [HttpPost]
+        [Route("/Administration/Receipts/Details/{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (!(await this.receiptsService.DeleteByIdAsync(id) > 0))
+            {
+                this.TempData["Error"] = GlobalConstants.DeleteProductErrorMessage;
+
+                return this.View();
+            }
+
+            return this.Redirect("/Administration/Receipts/All");
+        }
+
         protected override async Task<int> GetPagesCount(string type = null)
         {
-            var productsCount = type == null ? await this.receiptsService.GetCountAsync()
+            var receiptsCount = type == null ? await this.receiptsService.GetCountAsync()
                                              : await this.receiptsService.GetCountAsync(type);
 
-            var pagesCount = (int)Math.Ceiling((double)productsCount / GlobalConstants.ItemsPerPageAdmin);
+            var pagesCount = (int)Math.Ceiling((double)receiptsCount / GlobalConstants.ItemsPerPageAdmin);
 
             if (pagesCount == 0)
             {

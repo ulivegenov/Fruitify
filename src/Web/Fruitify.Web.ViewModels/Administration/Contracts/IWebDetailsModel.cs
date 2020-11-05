@@ -8,16 +8,6 @@
 
         string Name { get; set; }
 
-        ProductType Type { get; set; }
-
-        double Price { get; set; }
-
-        double PromoPrice { get; set; }
-
-        bool DayProduct { get; set; }
-
-        bool WeekProduct { get; set; }
-
         string Image { get; set; }
     }
 }

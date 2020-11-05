@@ -65,29 +65,6 @@
             return this.View(viewModel);
         }
 
-        public async Task<IActionResult> Details(int id)
-        {
-            var product = await this.productsService.GetByIdAsync<ProductServiceDetailsModel>(id);
-            var viewModel = product.To<ProductWebDetailsModel>();
-
-            return this.View(viewModel);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Edit(ProductWebDetailsModel productEditModel)
-        {
-            if (!this.ModelState.IsValid)
-            {
-                return this.View(productEditModel);
-            }
-
-            var serviceProduct = productEditModel.To<ProductServiceDetailsModel>();
-
-            await this.productsService.EditAsync(serviceProduct);
-
-            return this.Redirect($"/Administration/Products/Details/{serviceProduct.Id}");
-        }
-
         [HttpPost]
         [Route("/Administration/Products/Details/{id}")]
         public async Task<IActionResult> Delete(int id)
