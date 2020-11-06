@@ -8,8 +8,8 @@
     using Fruitify.Data.Models.Enums.Product;
     using Fruitify.Services.Data.Administration.Contracts;
     using Fruitify.Services.Data.AppServices.Contracts;
+    using Fruitify.Services.Models.Administration.Products;
     using Fruitify.Web.ViewModels.Administration.Products;
-    using Frutify.Services.Models.Administration.Products;
 
     using Microsoft.AspNetCore.Mvc;
 

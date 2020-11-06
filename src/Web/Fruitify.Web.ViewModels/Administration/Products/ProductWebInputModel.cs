@@ -6,8 +6,8 @@
     using Fruitify.Common;
     using Fruitify.Data.Models.Enums.Product;
     using Fruitify.Services.Mapping;
+    using Fruitify.Services.Models.Administration.Products;
     using Fruitify.Web.ViewModels.Administration.Contracts;
-    using Frutify.Services.Models.Administration.Products;
 
     using Microsoft.AspNetCore.Http;
 

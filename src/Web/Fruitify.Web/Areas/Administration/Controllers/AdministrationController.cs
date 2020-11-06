@@ -8,8 +8,9 @@
     using Fruitify.Services.Data.AppServices.Contracts;
     using Fruitify.Services.Data.Base.Contarcts;
     using Fruitify.Services.Mapping;
+    using Fruitify.Services.Models.Contracts;
     using Fruitify.Web.ViewModels.Administration.Contracts;
-    using Frutify.Services.Models.Contracts;
+
     using Microsoft.AspNetCore.Mvc;
 
     public abstract class AdministrationController<TEntity, TEntityWebInputModel, TEntityServiceInputModel,

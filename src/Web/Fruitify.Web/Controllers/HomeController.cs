@@ -6,10 +6,11 @@
 
     using Fruitify.Services.Data.Administration.Contracts;
     using Fruitify.Services.Mapping;
+    using Fruitify.Services.Models.Administration.Products;
     using Fruitify.Web.ViewModels;
     using Fruitify.Web.ViewModels.Administration.Products;
     using Fruitify.Web.ViewModels.Main.Home;
-    using Frutify.Services.Models.Administration.Products;
+
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController

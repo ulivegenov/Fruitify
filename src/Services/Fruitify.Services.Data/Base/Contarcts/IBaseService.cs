@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    using Frutify.Services.Models.Contracts;
+    using Fruitify.Services.Models.Contracts;
 
     public interface IBaseService<TKey>
     {

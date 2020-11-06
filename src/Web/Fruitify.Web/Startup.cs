@@ -17,8 +17,9 @@
     using Fruitify.Services.Data.AppServices.Contracts;
     using Fruitify.Services.Mapping;
     using Fruitify.Services.Messaging;
+    using Fruitify.Services.Models.Administration.Products;
     using Fruitify.Web.ViewModels;
-    using Frutify.Services.Models.Administration.Products;
+
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;

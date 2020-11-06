@@ -1,4 +1,4 @@
-﻿namespace Frutify.Services.Models.Administration.Receipts
+﻿namespace Fruitify.Services.Models.Administration.Receipts
 {
     using System.ComponentModel.DataAnnotations;
 
@@ -6,7 +6,7 @@
     using Fruitify.Data.Models;
     using Fruitify.Data.Models.Enums.Receipt;
     using Fruitify.Services.Mapping;
-    using Frutify.Services.Models.Contracts;
+    using Fruitify.Services.Models.Contracts;
 
     public class ReceiptServiceInputModel : IServiceInputModel, IMapTo<Receipt>
     {

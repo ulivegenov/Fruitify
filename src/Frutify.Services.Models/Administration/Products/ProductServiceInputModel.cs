@@ -1,4 +1,4 @@
-﻿namespace Frutify.Services.Models.Administration.Products
+﻿namespace Fruitify.Services.Models.Administration.Products
 {
     using System;
     using System.ComponentModel.DataAnnotations;
@@ -7,7 +7,7 @@
     using Fruitify.Data.Models;
     using Fruitify.Data.Models.Enums.Product;
     using Fruitify.Services.Mapping;
-    using Frutify.Services.Models.Contracts;
+    using Fruitify.Services.Models.Contracts;
 
     public class ProductServiceInputModel : IServiceInputModel, IMapTo<Product>
     {

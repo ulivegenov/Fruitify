@@ -4,8 +4,8 @@
 
     using Fruitify.Data.Models.Enums.Product;
     using Fruitify.Services.Mapping;
+    using Fruitify.Services.Models.Administration.Products;
     using Fruitify.Web.ViewModels.Administration.Contracts;
-    using Frutify.Services.Models.Administration.Products;
 
     public class ProductWebDetailsModel : IMapFrom<ProductServiceDetailsModel>, IMapTo<ProductServiceDetailsModel>, IWebDetailsModel
     {

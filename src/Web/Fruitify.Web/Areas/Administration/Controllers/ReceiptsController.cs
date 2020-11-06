@@ -8,8 +8,8 @@
     using Fruitify.Data.Models.Enums.Receipt;
     using Fruitify.Services.Data.Administration.Contracts;
     using Fruitify.Services.Data.AppServices.Contracts;
+    using Fruitify.Services.Models.Administration.Receipts;
     using Fruitify.Web.ViewModels.Administration.Receipts;
-    using Frutify.Services.Models.Administration.Receipts;
 
     using Microsoft.AspNetCore.Mvc;
 

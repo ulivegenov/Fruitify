@@ -10,7 +10,7 @@
     using Fruitify.Data.Common.Repositories;
     using Fruitify.Services.Data.Base.Contarcts;
     using Fruitify.Services.Mapping;
-    using Frutify.Services.Models.Contracts;
+    using Fruitify.Services.Models.Contracts;
 
     using Microsoft.EntityFrameworkCore;
 

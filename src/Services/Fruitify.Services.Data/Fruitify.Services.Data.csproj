@@ -23,7 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Fruitify.Data.Common\Fruitify.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\Fruitify.Data.Models\Fruitify.Data.Models.csproj" />
-    <ProjectReference Include="..\..\Frutify.Services.Models\Frutify.Services.Models.csproj" />
+    <ProjectReference Include="..\..\Frutify.Services.Models\Fruitify.Services.Models.csproj" />
     <ProjectReference Include="..\Fruitify.Services.Mapping\Fruitify.Services.Mapping.csproj" />
   </ItemGroup>
 

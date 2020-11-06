@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fruitify.Web.Tests", "Tests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fruitify.Web.ViewModels", "Web\Fruitify.Web.ViewModels\Fruitify.Web.ViewModels.csproj", "{13B7AACB-9C85-4409-8D4B-95A67D0DFFF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frutify.Services.Models", "Frutify.Services.Models\Frutify.Services.Models.csproj", "{FBE3C269-4B66-45A8-8B40-81CD8D7A3D7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fruitify.Services.Models", "Frutify.Services.Models\Fruitify.Services.Models.csproj", "{FBE3C269-4B66-45A8-8B40-81CD8D7A3D7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,8 +5,8 @@
     using Fruitify.Common;
     using Fruitify.Data.Models.Enums.Receipt;
     using Fruitify.Services.Mapping;
+    using Fruitify.Services.Models.Administration.Receipts;
     using Fruitify.Web.ViewModels.Administration.Contracts;
-    using Frutify.Services.Models.Administration.Receipts;
 
     using Microsoft.AspNetCore.Http;
 

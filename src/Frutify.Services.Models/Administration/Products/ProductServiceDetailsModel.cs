@@ -1,9 +1,9 @@
-﻿namespace Frutify.Services.Models.Administration.Products
+﻿namespace Fruitify.Services.Models.Administration.Products
 {
     using Fruitify.Data.Models;
     using Fruitify.Data.Models.Enums.Product;
     using Fruitify.Services.Mapping;
-    using Frutify.Services.Models.Contracts;
+    using Fruitify.Services.Models.Contracts;
 
     public class ProductServiceDetailsModel : IMapFrom<Product>, IMapTo<Product>, IServiceDetailsModel<int>
     {

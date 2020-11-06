@@ -1,0 +1,16 @@
+﻿@model Fruitify.Web.ViewModels.Administration.Receipts.ReceiptWebDetailsModel
+@{
+    ViewData["Title"] = "Receipt view";
+    var description = $"{Model.Description.Take(200).ToString()}...";
+}
+
+<tr class="text-center">
+    <td class="image-prod" onclick="location.href = '@Url.Action("Details", new { id = Model.Id })'" onmouseover="" style="cursor: pointer;">
+        <div class="img" style="background-image:url(@Model.Image);"></div>
+    </td>
+    <td class="product-name" onclick="location.href = '@Url.Action("Details", new { id = Model.Id })'" onmouseover="" style="cursor: pointer;">
+        <h3 style="color:red">@Model.Name</h3>
+        <p>@Model.Description.Substring(0, 70)...</p>
+    </td>
+</tr>
+

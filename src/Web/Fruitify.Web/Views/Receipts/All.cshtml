@@ -1,0 +1,15 @@
+﻿@model Fruitify.Web.ViewModels.Administration.Receipts.ReceiptWebAllModel
+
+@{
+    ViewData["Title"] = "All Receipts User Page";
+}
+
+<section class="ftco-section">
+    <div class="container">
+        @*<partial name="ReceiptTopBackgroundPartial" />*@
+
+        <partial name="ReceiptsTablePartial" />
+    </div>
+
+    <partial name="PaginationPartial" />
+</section>

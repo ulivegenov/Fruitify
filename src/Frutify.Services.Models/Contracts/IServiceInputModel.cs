@@ -1,4 +1,4 @@
-﻿namespace Frutify.Services.Models.Contracts
+﻿namespace Fruitify.Services.Models.Contracts
 {
     public interface IServiceInputModel
     {
