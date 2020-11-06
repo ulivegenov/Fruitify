@@ -1,6 +1,5 @@
 ﻿namespace Fruitify.Web.Areas.Administration.Controllers
 {
-    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
@@ -9,7 +8,6 @@
     using Fruitify.Services.Data.AppServices.Contracts;
     using Fruitify.Services.Data.Base.Contarcts;
     using Fruitify.Services.Mapping;
-    using Fruitify.Web.ViewModels.Administration.Base;
     using Fruitify.Web.ViewModels.Administration.Contracts;
     using Frutify.Services.Models.Contracts;
     using Microsoft.AspNetCore.Mvc;
