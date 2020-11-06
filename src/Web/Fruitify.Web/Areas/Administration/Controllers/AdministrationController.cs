@@ -90,7 +90,7 @@
                                      .GetAllWithPagingAsync<TEntityServiceDetailsModel>(
                                       GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
 
-            this.AddProductsToViewModel(viewModel, entities);
+            this.AddEntitiesToViewModel(viewModel, entities);
 
             viewModel.PagesCount = await this.GetPagesCount();
 
@@ -99,7 +99,7 @@
             return this.View(viewModel);
         }
 
-        protected void AddProductsToViewModel(TEntityWebAllModel viewModel, IEnumerable<TEntityServiceDetailsModel> entities)
+        protected void AddEntitiesToViewModel(TEntityWebAllModel viewModel, IEnumerable<TEntityServiceDetailsModel> entities)
         {
             foreach (var entity in entities)
             {

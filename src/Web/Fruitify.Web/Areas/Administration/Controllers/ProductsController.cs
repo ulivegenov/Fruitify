@@ -8,9 +8,9 @@
     using Fruitify.Data.Models.Enums.Product;
     using Fruitify.Services.Data.Administration.Contracts;
     using Fruitify.Services.Data.AppServices.Contracts;
-    using Fruitify.Services.Mapping;
     using Fruitify.Web.ViewModels.Administration.Products;
     using Frutify.Services.Models.Administration.Products;
+
     using Microsoft.AspNetCore.Mvc;
 
     public class ProductsController : AdministrationController<Product, ProductWebInputModel,
@@ -29,38 +29,16 @@
             this.cloudinaryService = cloudinaryService;
         }
 
-        public async Task<IActionResult> AllFruits(int id = 1)
+        public async Task<IActionResult> AllFruits()
         {
-            var page = id;
-            var products = await this.productsService
-                                     .GetAllProductsByTypeWithPagingAsync<ProductServiceDetailsModel>(
-                                      ProductType.Fruit, GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
-
-            var viewModel = new ProductWebAllModel();
-
-            this.AddProductsToViewModel(viewModel, products);
-
-            viewModel.PagesCount = await this.GetPagesCount(ProductType.Fruit.ToString());
-
-            viewModel.CurrentPage = page;
+            var viewModel = await this.AllProductsByType(ProductType.Fruit);
 
             return this.View(viewModel);
         }
 
-        public async Task<IActionResult> AllVegetables(int id = 1)
+        public async Task<IActionResult> AllVegetables()
         {
-            var page = id;
-            var products = await this.productsService
-                                     .GetAllProductsByTypeWithPagingAsync<ProductServiceDetailsModel>(
-                                      ProductType.Vegetable, GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
-
-            var viewModel = new ProductWebAllModel();
-
-            this.AddProductsToViewModel(viewModel, products);
-
-            viewModel.PagesCount = await this.GetPagesCount(ProductType.Vegetable.ToString());
-
-            viewModel.CurrentPage = page;
+            var viewModel = await this.AllProductsByType(ProductType.Vegetable);
 
             return this.View(viewModel);
         }
@@ -92,6 +70,24 @@
             }
 
             return pagesCount;
+        }
+
+        private async Task<ProductWebAllModel> AllProductsByType(ProductType productType, int id = 1)
+        {
+            var page = id;
+            var products = await this.productsService
+                                     .GetAllProductsByTypeWithPagingAsync<ProductServiceDetailsModel>(
+                                      productType, GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
+
+            var viewModel = new ProductWebAllModel();
+
+            this.AddEntitiesToViewModel(viewModel, products);
+
+            viewModel.PagesCount = await this.GetPagesCount(productType.ToString());
+
+            viewModel.CurrentPage = page;
+
+            return viewModel;
         }
     }
 }

@@ -5,6 +5,7 @@
 
     using Fruitify.Common;
     using Fruitify.Data.Models;
+    using Fruitify.Data.Models.Enums.Receipt;
     using Fruitify.Services.Data.Administration.Contracts;
     using Fruitify.Services.Data.AppServices.Contracts;
     using Fruitify.Web.ViewModels.Administration.Receipts;
@@ -42,6 +43,20 @@
             return this.Redirect("/Administration/Receipts/All");
         }
 
+        public async Task<IActionResult> AllJuices()
+        {
+            var viewModel = await this.AllReceiptsByType(ReceiptType.Juice, 1);
+
+            return this.View(viewModel);
+        }
+
+        public async Task<IActionResult> AllSalads()
+        {
+            var viewModel = await this.AllReceiptsByType(ReceiptType.Salad, 1);
+
+            return this.View(viewModel);
+        }
+
         protected override async Task<int> GetPagesCount(string type = null)
         {
             var receiptsCount = type == null ? await this.receiptsService.GetCountAsync()
@@ -55,6 +70,24 @@
             }
 
             return pagesCount;
+        }
+
+        private async Task<ReceiptWebAllModel> AllReceiptsByType(ReceiptType receiptType, int id = 1)
+        {
+            var page = id;
+            var receipts = await this.receiptsService
+                                     .GetAllReceiptsByTypeWithPagingAsync<ReceiptServiceDetailsModel>(
+                                      receiptType, GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
+
+            var viewModel = new ReceiptWebAllModel();
+
+            this.AddEntitiesToViewModel(viewModel, receipts);
+
+            viewModel.PagesCount = await this.GetPagesCount(receiptType.ToString());
+
+            viewModel.CurrentPage = page;
+
+            return viewModel;
         }
     }
 }
