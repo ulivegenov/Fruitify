@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Fruitify.Web.ViewModels.Administration.Receipts.ReceiptWebAllModel
+@{
     ViewData["Title"] = "Receipt Table view";
 }
 
@@ -6,7 +7,7 @@
     <thead class="thead-primary">
         <tr class="text-center">
             <th>&nbsp;</th>
-            <th>Всички рецепти</th>
+            <th>@ViewData["TableTitle"]</th>
             <th>&nbsp;</th>
         </tr>
     </thead>

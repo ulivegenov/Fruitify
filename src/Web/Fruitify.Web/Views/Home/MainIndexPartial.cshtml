@@ -18,19 +18,19 @@
                             <div class="text text-center">
                                 <h2>Плодовете и Зеленчуците</h2>
                                 <p>се грижат за здравето във всеки дом</p>
-                                <p><a asp-area="" asp-controller="Products" asp-action="All" class="btn btn-primary">Пазарувай</a></p>
+                                <p><a asp-controller="Products" asp-action="All" class="btn btn-primary">Пазарувай</a></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="category-wrap img mb-4 d-flex align-items-end" style="background-image: url(@imgFruitCategory);">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a asp-area="" asp-controller="Products" asp-action="AllFruits">Плодове</a></h2>
+                                <h2 class="mb-0"><a asp-controller="Products" asp-action="AllFruits">Плодове</a></h2>
                             </div>
                         </div>
                         <div class="category-wrap img d-flex align-items-end" style="background-image: url(@imgVegetableCategory);">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a asp-area="" asp-controller="Products" asp-action="AllVegetables">Зеленчуци</a></h2>
+                                <h2 class="mb-0"><a asp-controller="Products" asp-action="AllVegetables">Зеленчуци</a></h2>
                             </div>
                         </div>
                     </div>
@@ -40,12 +40,12 @@
             <div class="col-md-4">
                 <div class="category-wrap img mb-4 d-flex align-items-end" style="background-image: url(@imgJuicesCategory);">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="#">Сокове</a></h2>
+                        <h2 class="mb-0"><a asp-controller="Receipts" asp-action="AllJuices">Сокове</a></h2>
                     </div>
                 </div>
                 <div class="category-wrap img d-flex align-items-end" style="background-image: url(@imgSaladsCategory);">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="#">Салати</a></h2>
+                        <h2 class="mb-0"><a asp-controller="Receipts" asp-action="AllSalads">Салати</a></h2>
                     </div>
                 </div>
             </div>

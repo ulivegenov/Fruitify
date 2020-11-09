@@ -5,6 +5,7 @@
     using System.Threading.Tasks;
 
     using Fruitify.Common;
+    using Fruitify.Data.Models.Enums.Receipt;
     using Fruitify.Services.Data.Administration.Contracts;
     using Fruitify.Services.Mapping;
     using Fruitify.Services.Models.Administration.Receipts;
@@ -14,6 +15,10 @@
 
     public class ReceiptsController : BaseController
     {
+        private const string All_Receipts_Title = "ВСИЧКИ РЕЦЕПТИ";
+        private const string All_Juices_Title = "ВСИЧКИ СОКОВЕ";
+        private const string All_Salads_Title = "ВСИЧКИ САЛАТИ";
+
         private readonly IReceiptsService receiptsService;
 
         public ReceiptsController(IReceiptsService receiptsService)
@@ -21,20 +26,26 @@
             this.receiptsService = receiptsService;
         }
 
-        public async Task<IActionResult> All(int id = 1)
+        public async Task<IActionResult> All()
         {
-            var page = id;
-            var receipts = await this.receiptsService
-                                     .GetAllWithPagingAsync<ReceiptServiceDetailsModel>(
-                                      GlobalConstants.ItemsPerPage, (page - 1) * GlobalConstants.ItemsPerPage);
+            var viewModel = await this.AllReceipts();
+            this.ViewData["TableTitle"] = All_Receipts_Title;
 
-            var viewModel = new ReceiptWebAllModel();
+            return this.View(viewModel);
+        }
 
-            this.AddReceiptsToViewModel(viewModel, receipts);
+        public async Task<IActionResult> AllJuices()
+        {
+            var viewModel = await this.AllReceiptsByType(ReceiptType.Juice);
+            this.ViewData["TableTitle"] = All_Juices_Title;
 
-            viewModel.PagesCount = await this.GetPagesCount();
+            return this.View(viewModel);
+        }
 
-            viewModel.CurrentPage = page;
+        public async Task<IActionResult> AllSalads()
+        {
+            var viewModel = await this.AllReceiptsByType(ReceiptType.Salad);
+            this.ViewData["TableTitle"] = All_Salads_Title;
 
             return this.View(viewModel);
         }
@@ -54,12 +65,48 @@
             return pagesCount;
         }
 
-        private void AddReceiptsToViewModel(ReceiptWebAllModel viewModel, IEnumerable<ReceiptServiceDetailsModel> products)
+        private void AddEntitiesToViewModel(ReceiptWebAllModel viewModel, IEnumerable<ReceiptServiceDetailsModel> products)
         {
             foreach (var product in products)
             {
                 viewModel.Entities.Add(product.To<ReceiptWebDetailsModel>());
             }
+        }
+
+        private async Task<ReceiptWebAllModel> AllReceipts(int id = 1)
+        {
+            var page = id;
+            var receipts = await this.receiptsService
+                                     .GetAllWithPagingAsync<ReceiptServiceDetailsModel>(
+                                      GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
+
+            var viewModel = new ReceiptWebAllModel();
+
+            this.AddEntitiesToViewModel(viewModel, receipts);
+
+            viewModel.PagesCount = await this.GetPagesCount();
+
+            viewModel.CurrentPage = page;
+
+            return viewModel;
+        }
+
+        private async Task<ReceiptWebAllModel> AllReceiptsByType(ReceiptType receiptType, int id = 1)
+        {
+            var page = id;
+            var receipts = await this.receiptsService
+                                     .GetAllReceiptsByTypeWithPagingAsync<ReceiptServiceDetailsModel>(
+                                      receiptType, GlobalConstants.ItemsPerPageAdmin, (page - 1) * GlobalConstants.ItemsPerPageAdmin);
+
+            var viewModel = new ReceiptWebAllModel();
+
+            this.AddEntitiesToViewModel(viewModel, receipts);
+
+            viewModel.PagesCount = await this.GetPagesCount(receiptType.ToString());
+
+            viewModel.CurrentPage = page;
+
+            return viewModel;
         }
     }
 }
