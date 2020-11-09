@@ -1,0 +1,29 @@
+﻿@model Fruitify.Web.ViewModels.Administration.Receipts.ReceiptWebDetailsModel
+
+@{
+    ViewData["Title"] = "All Receipts User Page";
+    var aspAction = $"All{Model.Type.ToString()}s";
+}
+
+<partial name="ReceiptTopBackgroundPartial" />
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-5">
+                <a href="@Model.Image" class="image-popup"><img src="@Model.Image" class="img-fluid"></a>
+            </div>
+            <div class="col-lg-6 product-details pl-md-5">
+                <h3>@Model.Name</h3>
+                <p>
+                    @Model.Description
+                </p>
+                <p>
+                    <a asp-controller="Receipts" asp-action="@aspAction" class="btn btn-black py-3 px-5">
+                        Други рецепти
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

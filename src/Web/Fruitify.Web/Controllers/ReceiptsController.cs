@@ -24,7 +24,7 @@
 
         public async Task<IActionResult> All()
         {
-            var viewModel = await this.AllReceipts();
+            var viewModel = await this.GetAllReceipts();
             this.ViewData["TableTitle"] = GlobalConstants.AllReceiptsTitleConst;
 
             return this.View(viewModel);
@@ -32,7 +32,7 @@
 
         public async Task<IActionResult> AllJuices()
         {
-            var viewModel = await this.AllReceiptsByType(ReceiptType.Juice);
+            var viewModel = await this.GetAllReceiptsByType(ReceiptType.Juice);
             this.ViewData["TableTitle"] = GlobalConstants.AllJuicesTitleConst;
 
             return this.View(viewModel);
@@ -40,8 +40,16 @@
 
         public async Task<IActionResult> AllSalads()
         {
-            var viewModel = await this.AllReceiptsByType(ReceiptType.Salad);
+            var viewModel = await this.GetAllReceiptsByType(ReceiptType.Salad);
             this.ViewData["TableTitle"] = GlobalConstants.AllSaladsTitleConst;
+
+            return this.View(viewModel);
+        }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var receipt = await this.receiptsService.GetByIdAsync<ReceiptServiceDetailsModel>(id);
+            var viewModel = receipt.To<ReceiptWebDetailsModel>();
 
             return this.View(viewModel);
         }
@@ -69,7 +77,7 @@
             }
         }
 
-        private async Task<ReceiptWebAllModel> AllReceipts(int id = 1)
+        private async Task<ReceiptWebAllModel> GetAllReceipts(int id = 1)
         {
             var page = id;
             var receipts = await this.receiptsService
@@ -87,7 +95,7 @@
             return viewModel;
         }
 
-        private async Task<ReceiptWebAllModel> AllReceiptsByType(ReceiptType receiptType, int id = 1)
+        private async Task<ReceiptWebAllModel> GetAllReceiptsByType(ReceiptType receiptType, int id = 1)
         {
             var page = id;
             var receipts = await this.receiptsService
