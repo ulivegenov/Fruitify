@@ -3,18 +3,24 @@
     ViewData["Title"] = "Receipt Table view";
 }
 
-<table class="table">
-    <thead class="thead-primary">
-        <tr class="text-center">
-            <th>&nbsp;</th>
-            <th>@ViewData["TableTitle"]</th>
-            <th>&nbsp;</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var receipt in Model.Entities)
-        {
-            <partial name="ReceiptPartial" model="receipt" />
-        }
-    </tbody>
-</table>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <table class="table">
+                <thead class="thead-primary">
+                    <tr class="text-center">
+                        <th>&nbsp;</th>
+                        <th>@ViewData["TableTitle"]</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var receipt in Model.Entities)
+                    {
+                        <partial name="ReceiptPartial" model="receipt" />
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
