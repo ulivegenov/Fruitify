@@ -15,10 +15,6 @@
 
     public class ReceiptsController : BaseController
     {
-        private const string All_Receipts_Title = "ВСИЧКИ РЕЦЕПТИ";
-        private const string All_Juices_Title = "ВСИЧКИ СОКОВЕ";
-        private const string All_Salads_Title = "ВСИЧКИ САЛАТИ";
-
         private readonly IReceiptsService receiptsService;
 
         public ReceiptsController(IReceiptsService receiptsService)
@@ -29,7 +25,7 @@
         public async Task<IActionResult> All()
         {
             var viewModel = await this.AllReceipts();
-            this.ViewData["TableTitle"] = All_Receipts_Title;
+            this.ViewData["TableTitle"] = GlobalConstants.AllReceiptsTitleConst;
 
             return this.View(viewModel);
         }
@@ -37,7 +33,7 @@
         public async Task<IActionResult> AllJuices()
         {
             var viewModel = await this.AllReceiptsByType(ReceiptType.Juice);
-            this.ViewData["TableTitle"] = All_Juices_Title;
+            this.ViewData["TableTitle"] = GlobalConstants.AllJuicesTitleConst;
 
             return this.View(viewModel);
         }
@@ -45,7 +41,7 @@
         public async Task<IActionResult> AllSalads()
         {
             var viewModel = await this.AllReceiptsByType(ReceiptType.Salad);
-            this.ViewData["TableTitle"] = All_Salads_Title;
+            this.ViewData["TableTitle"] = GlobalConstants.AllSaladsTitleConst;
 
             return this.View(viewModel);
         }

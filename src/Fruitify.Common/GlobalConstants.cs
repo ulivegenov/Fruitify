@@ -20,14 +20,15 @@
         public const string DeleteProductErrorMessage = "Failed to delete {0}.";
 
         // Cloudinary constants
-        //public const string ProductsImagesFolder = "FruitifyPics/Products";
-        //public const string ReceiptsImagesFolder = "FruitifyPics/Receipts";
         public const string ImagesFolder = "FruitifyPics/{0}s";
 
         // Controllers constants
         public const int ItemsPerPage = 8;
         public const int ItemsPerPageAdmin = 11;
         public const int MorePagesToShow = 2;
+        public const string AllReceiptsTitleConst = "ВСИЧКИ РЕЦЕПТИ";
+        public const string AllJuicesTitleConst = "ВСИЧКИ СОКОВЕ";
+        public const string AllSaladsTitleConst = "ВСИЧКИ САЛАТИ";
 
         // Views constants
         public const int WeekProductsCount = 4;
